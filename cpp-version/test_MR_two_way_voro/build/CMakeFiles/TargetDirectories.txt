@@ -1,0 +1,7 @@
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/HybridAstar_pathplanning_1.00.07.dir
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/edit_cache.dir
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/rebuild_cache.dir
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/list_install_components.dir
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/install.dir
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/install/local.dir
+/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/build/CMakeFiles/install/strip.dir
