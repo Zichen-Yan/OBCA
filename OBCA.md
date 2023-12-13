@@ -178,3 +178,5 @@ $$
 & \quad s_k^{m} \geq 0, \lambda_k^{m} \geq 0, \mu_k^{m} \geq 0\\
 \end{aligned}
 $$
+
+但在泊车场景下，不考虑碰撞情况。
