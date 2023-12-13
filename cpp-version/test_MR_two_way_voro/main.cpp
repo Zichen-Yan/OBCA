@@ -94,7 +94,7 @@ const double upa_y[10] = { 0.955689500945464,0.376459240384026,-0.37645924038402
 
 //#define PC_version
 
-#define MAP_FILE "/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/map.txt"
+#define MAP_FILE "map.txt"
 #define MAP_SIZE (62500)
 void readMap() {
 
@@ -192,7 +192,7 @@ int main()
 			index_request = 0;
 			Gears = 0;
 			parking_index = parking_index + 1;
-			filename = "/home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_voro/plan_HybridAstar.txt"; // 保存输出日志
+			filename = "plan_HybridAstar.txt"; // 保存输出日志
 			
 			pF = fopen(filename.c_str(), "w");
 			fprintf(pF, "Path_HybridAstar_DDS_PC"); // 软件版本号
