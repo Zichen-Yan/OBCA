@@ -1,0 +1,15 @@
+#ifndef __byd_interfaces__msg__Coordinate__idl__
+#define __byd_interfaces__msg__Coordinate__idl__
+
+module uss_msgs {
+  module msg {
+    struct Coordinate {
+  double X;
+	double Y;
+	double Yaw;
+	uint8 rajectoryDirection;
+	double Curvature;
+};
+  };
+};
+#endif

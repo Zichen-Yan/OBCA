@@ -1,0 +1,7 @@
+2023-12-18_14-01-44.696 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/main.cpp:252: Read map error!
+2023-12-18_14-01-44.702 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/main.cpp:314: %%%%%%%%%%%%%%%%%nseconds_planUss_map%%%%%%%%%%%%%%%%% = 0.000003
+2023-12-18_14-01-44.702 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/main.cpp:318: %%%%%%%%%%%%%%%%%nseconds_planis_Completed%%%%%%%%%%%%%%%%% = 0.000035
+2023-12-18_14-01-44.705 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/main.cpp:322: %%%%%%%%%%%%%%%%%nseconds_planInformationLog%%%%%%%%%%%%%%%%% = 0.003766
+2023-12-18_14-01-44.705 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/src/dynamic_vertical.cpp:1466: theta_car_dynamic=1
+2023-12-18_14-01-44.706 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/src/findpath.cpp:995: Start=4.000000,0.000000,3.141593
+2023-12-18_14-01-44.706 BYDAPA_Module WARNING /home/user/work/tda4/rtos-sdk/vision_apps/vendor/byd/apps/test_MR_two_way_OBCA/src/findpath.cpp:996: End=-0.050000,-5.949000,1.570796
