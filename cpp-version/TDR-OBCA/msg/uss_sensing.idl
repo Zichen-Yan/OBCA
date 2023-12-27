@@ -1,0 +1,17 @@
+#include "nav_msgs/msg/Position.idl"
+#include "nav_msgs/msg/Parkingspaceinfo.idl"
+
+#ifndef __byd_interfaces__msg__uss__sensing__idl__
+#define   __byd_interfaces__msg__uss__sensing__idl__
+
+module byd_interfaces {
+  module msg {
+    struct uss_sensing {
+      long long TimeStampMs;
+      uss_msgs::msg::Position positions[25];
+     uss_msgs::msg:: ParkingSpaceInfo parkingSpaceInfo[25];
+     double Theta_Uss;
+    };
+  };
+};
+#endif
