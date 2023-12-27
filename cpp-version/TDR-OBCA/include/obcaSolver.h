@@ -27,8 +27,8 @@ private:
     double WB;
     double max_x = 12.5;
     double max_y = 12.5;
-    double D_bound = 0.2;
-    int sample_interval = 2;
+    double D_bound = 0.3;
+    int sample_interval = 3;
 
     int n_controls;
     int n_states;

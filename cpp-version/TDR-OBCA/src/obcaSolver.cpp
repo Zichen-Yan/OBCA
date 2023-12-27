@@ -34,7 +34,7 @@ std::vector<path_point> Smoother::sample_path(const std::vector<path_point> path
         }
         cnt++;
     }
-    if (path.size() % sample_interval != 0)
+    if ((path.size()-1) % sample_interval != 0) //第一个点必取，如果最后一个点取不到，就加入end
     {
         ans.push_back(end);
     }
