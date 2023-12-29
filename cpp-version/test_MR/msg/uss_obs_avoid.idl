@@ -1,0 +1,14 @@
+#include "nav_msgs/msg/Uss_obs.idl"
+
+#ifndef __byd_interfaces__msg__uss__obs__avoid__idl__
+#define   __byd_interfaces__msg__uss__obs__avoid__idl__
+
+module byd_interfaces {
+  module msg {
+    struct uss_obs {
+      long long TimeStampMs;
+      uss_msgs::msg::Uss_obs_avoid uss_obs_avoid;
+    };
+  };
+};
+#endif

@@ -1,0 +1,19 @@
+#ifndef _byd_interfaces_msg_uss_idl_
+#define _byd_interfaces_msg_uss_idl_
+
+module byd_interface {
+
+	module msg {
+	
+	struct Uss{
+		uint8 channel;        //当前探头的ID(0-11)
+    		uint8 SendID;         //发波的探头ID(0-11)
+    		uint64 timestamp;     //开始发波的时间戳
+    		uint16 status;        //the 10bit status info 第一个回波的高度信息
+    		uint8 num;            //echo timestamp number, 回波数量
+    		uint16 ts[16]; 	      //echo timestamp, 如果是发波探头，ts[0:1]是振铃时间，ts[2:]是回波时间; 如果是收波探头，ts[1:]是回波时间
+	};
+};	//module msg
+};	//module hello_interafce
+
+#endif
