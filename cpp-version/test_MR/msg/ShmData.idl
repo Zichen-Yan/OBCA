@@ -1,0 +1,164 @@
+module byd_interfaces
+{
+  module msg
+  {
+    struct ShmData_Base
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+    };
+#pragma keylist ShmData_Base
+
+    struct ShmData_16
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[16 - 12];
+    };
+#pragma keylist ShmData_16
+
+    struct ShmData_32
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[32 - 12];
+    };
+#pragma keylist ShmData_32
+
+    struct ShmData_64
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[64 - 12];
+    };
+#pragma keylist ShmData_64
+
+    struct ShmData_128
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[128 - 12];
+    };
+#pragma keylist ShmData_128
+
+    struct ShmData_256
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[256 - 12];
+    };
+#pragma keylist ShmData_256
+
+    struct ShmData_512
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[512 - 12];
+    };
+#pragma keylist ShmData_512
+
+    struct ShmData_1024
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[1024 - 12];
+    };
+#pragma keylist ShmData_1024
+
+    struct ShmData_2048
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[2048 - 12];
+    };
+#pragma keylist ShmData_2048
+
+    struct ShmData_4096
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[4096 - 12];
+    };
+#pragma keylist ShmData_4096
+
+    struct ShmData_8192
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[8192 - 12];
+    };
+#pragma keylist ShmData_8192
+
+    struct ShmData_16384
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[16384 - 12];
+    };
+#pragma keylist ShmData_16384
+
+    struct ShmData_32768
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[32768 - 12];
+    };
+#pragma keylist ShmData_32768
+
+    struct ShmData_65536
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[65536 - 12];
+    };
+#pragma keylist ShmData_65536
+
+    struct ShmData_131072
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[131072 - 12];
+    };
+#pragma keylist ShmData_131072
+
+    struct ShmData_262144
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[262144 - 12];
+    };
+#pragma keylist ShmData_262144
+
+    struct ShmData_524288
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[524288 - 12];
+    };
+#pragma keylist ShmData_524288
+
+    struct ShmData_1048576
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[1048576 - 12];
+    };
+#pragma keylist ShmData_1048576
+
+    struct ShmData_2097152
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[2097152 - 12];
+    };
+#pragma keylist ShmData_2097152
+
+    struct ShmData_4194304
+    {
+      unsigned long long count;
+      unsigned long payloadsize;
+      octet payload[4194304 - 12];
+    };
+#pragma keylist ShmData_4194304
+  };
+};

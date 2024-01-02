@@ -1,0 +1,19 @@
+#ifndef __byd_interfaces__msg__Parking__next__step__idl__
+#define __byd_interfaces__msg__Parking__next__step__idl__
+
+module uss_msgs {
+  module msg {
+    struct Parking_next_nextstep {
+         int32 P0_X;
+          int32 P0_Y;
+          int32 P1_X;
+          int32 P1_Y;
+          int32 P2_X;
+          int32 P2_Y;
+          int32 P3_X;
+          int32 P3_Y;
+
+};
+  };
+};
+#endif
