@@ -1,5 +1,5 @@
-#ifndef findpath_H
-#define findpath_H
+#pragma once
+
 #include "log.h"
 #include <vector>
 #include <iostream>
@@ -24,6 +24,9 @@
 #include <dynamic_voronoi.h>
 // #include "log.h"
 #include <fstream>
+#include "data_type.h"
+#include "obcaSolver.h"
+#include "corridor.h"
 
 #define twopi 6.283185307179586
 #define pi 3.141592653589793
@@ -34,7 +37,6 @@
 
 typedef unsigned char uint8;
 typedef unsigned short uint16;
-typedef long int64_byd; // 20220407修改解决编译不通过的问题
 typedef unsigned int uint32;
 
 class Node // 定义每个node节点的类
@@ -62,35 +64,6 @@ public:
 
 }; // 必须有分号
 
-struct Path_config // 惩罚和搜索的参数设置
-{
-
-	// Motion resolution define 运动分辨率定义
-	float MOTION_RESOLUTION = 0.1; //[m] path interporate resolution 路径插值分辨率
-	float N_STEER = 1.0;		   // 20.0; % number of steer command 转向指令数
-	float EXTEND_AREA = 0;		   //[m] map extend length 地图延伸长度
-	float XY_GRID_RESOLUTION = 0.1;
-	float YAW_GRID_RESOLUTION = 3;
-
-	// Grid bound 网格边界
-	double MINX = -12.5;
-	double MAXX = 12.5;
-	double MINY = -12.5;
-	double MAXY = 12.5;
-	double MINYAW = -3.141592653589793;
-	double MAXYAW = 3.141592653589793;
-
-	int XIDX;
-	int XIDY;
-
-	// Cost related define 成本相关定义
-	float SB_COST = 0.9;		   // switch back penalty cost 切换回惩罚成本
-	float BACK_COST = 1;		   // 1; %1.5; % backward penalty cost 反向惩罚成本
-	float STEER_CHANGE_COST = 0.9; // 0; %1.5; % steer angle change penalty cost 转向角改变惩罚成本
-	float STEER_COST = 0;		   // steer angle change penalty cost 转向角惩罚成本
-	float H_COST = 1;			   // Heuristic cost 启发式成本
-};
-
 /*
 struct map_set   //地图设置
 {
@@ -104,42 +77,12 @@ struct map_set   //地图设置
 
 };
 */
-struct Vehicle_config // 车辆参数设置
-{
-	double WB = 2.92;						 //[m] wheel base : rear to front steer 轴距
-	double W = 1.94;						 //[m] width of vehicle 车宽
-	double LF = 3.892;						 //[m] distance from rear to vehicle front end of vehicle 后轴中心到车辆最前端的距离
-	double LB = 1.093;						 //[m] distance from rear to vehicle back end of vehicle 后轴中心到车辆最后端的距离
-	double MAX_STEER = 0.4881;				 //[rad] maximum steering angle 车辆轮胎最大转角
-	double MIN_CIRCLE = WB / tan(MAX_STEER); //[m] mininum steering circle radius 车辆最小转弯半径 汉_5.5
 
-	// double W_max = 1.95;
-	// double LF_max = 3.9;
-	// double LB_max = 1.1;
-};
-
-struct path_point // 搜出的路径点进行记录
-{
-	double x = 0;
-	double y = 0;
-	double th = 0;
-	double D = 0;
-	double delta = 0;
-};
-
-enum vturn
-{
-	St,
-	Ri,
-	Le
-};
 struct RsPath // 定义path的类型
 {
-	vturn rspath_type[3];
-	double t;
-	double u;
-	double v;
 	double lenth;
+	std::string pathtype;
+	double pathlength[5]={0,0,0,0,0};
 };
 /////////////////////////路径规划结构体///////////////////////////////
 struct Coordinate
@@ -166,51 +109,6 @@ struct App
 	uint8 APA_nav_cmd;
 	uint8 APA_Park_Function;
 };
-////////////////////////融合结构体/////////////////////////////////////
-struct Position
-{
-	double X;
-	double Y;
-	double Heading;
-};
-
-struct ParkingSpaceInfo
-{
-	uint8 id;
-	int P0_X;
-	int P0_Y;
-	int P1_X;
-	int P1_Y;
-	int P2_X;
-	int P2_Y;
-	int P3_X;
-	int P3_Y;
-	int Width;
-	uint8 ParkingSpaceValid;
-	uint8 ParkingSpaceType;
-};
-
-struct FreeSpaceCell
-{
-	uint8 Status;
-	// uint16 Probability;
-};
-
-struct Fusion
-{
-	int64_byd TimeStampMs;
-	Position position;
-	ParkingSpaceInfo parkingSpaceInfo;
-	uint8 TraceParkingID_Cam;
-	uint8 TraceParkingID_USS;
-	double Theta;
-	uint8 ParkInMode;
-	double distance_01; // 20221013新增，障碍物边缘到P0P1边的距离
-	double distance_23; // 20221013新增，障碍物边缘到P2P3边的距离
-	double distance_03;
-	double depth_block;
-	FreeSpaceCell freeSpaceCell[62500];
-};
 ////////////////////////车辆控制结构体///////////////////////////
 struct Control
 {
@@ -230,12 +128,12 @@ struct Calculation
 ///////////声明全局变量//////////////////////////////
 extern Plan plan;
 extern App app;
-extern Fusion fusion;
+
 extern Control control;
 extern Calculation calculation;
 
 #define plan_request control.PlanningRequest
-#define obstmap fusion.freeSpaceCell
+
 extern int aaa;
 extern int bbb;
 extern int ccc;
@@ -286,9 +184,8 @@ extern std::string str_idx_two;
 
 extern std::vector<path_point> pathpoint;	  // 搜出的路点的集合
 extern std::vector<path_point> pathpoint_two; // 搜出的路点的集合
-extern Path_config pathfind_parameters;		  // 惩罚参数设置
+
 // extern map_set map_parameters;        //地图数据设置
-extern Vehicle_config vehicle_parameters;	  // 车辆参数设置
 extern std::vector<double> find_steer_degree; // 方向盘角度设置
 extern double nseconds;
 extern double Rect_x[];
@@ -334,4 +231,39 @@ extern void ParkingVertical();
 extern void ParkingLevel();	  // 水平车位
 extern void ParkingOblique(); // 斜车位
 
-#endif // RS_H
+/////////////////////RS函数声明////////////////////////////////
+RsPath FindRSPath(double x, double y, double phi);
+int FindRSPath(double x, double y, double phi, RsPath &path);
+void polar(double x, double y, double& r, double& theta);
+std::pair<double, double> calc_tau_omega(const double u,
+										 const double v,
+										 const double xi,
+										 const double eta,
+										 const double phi);
+
+bool LSR(double x, double y, double phi, double& t, double& u, double& v);
+bool LSL(double x, double y, double phi, double& t, double& u, double& v);
+bool LRL(double x, double y, double phi, double &t, double &u, double &v);
+bool SLS(double x, double y, double phi, double &t, double &u, double &v);
+bool LRLRn(double x, double y, double phi, double &t, double &u, double &v);
+bool LRLRp(double x, double y, double phi, double &t, double &u, double &v);
+bool LRSR(double x, double y, double phi, double &t, double &u, double &v);
+bool LRSL(double x, double y, double phi, double &t, double &u, double &v);
+bool LRSLR(double x, double y, double phi, double &t, double &u, double &v);
+bool LpRpSp(double x, double y, double phi, double &t, double &u, double &v);
+
+void CCS(double x, double y, double phi, RsPath& path);
+void CCC(double x, double y, double phi, RsPath& path);
+void CSC(double x, double y, double phi, RsPath& path);
+void SCS(double x, double y, double phi, RsPath& path);
+void CCCC(double x, double y, double phi, RsPath& path);
+void CCSC(double x, double y, double phi, RsPath& path);
+void CCSCC(double x, double y, double phi, RsPath& path);
+
+extern int flag_CCS;
+extern int flag_CCC;
+extern int flag_CSC;
+extern int flag_SCS;
+extern int flag_CCCC;
+extern int flag_CCSC;
+extern int flag_CCSCC;

@@ -1,0 +1,24 @@
+#include "nav_msgs/msg/Parkingspace.idl"
+#include "nav_msgs/msg/Position.idl"
+
+#ifndef __byd_interfaces__msg__fusion__parkingtarget__idl__
+#define __byd_interfaces__msg__fusion__parkingtarget__idl__
+
+module byd_interfaces {
+  module msg {
+    struct fusion_parkingtarget {
+      long long TimeStampMs;
+      uss_msgs::msg::Position position;
+      uss_msgs::msg::ParkingSpace ParkingSpace;
+      double Theta;
+      uint8 TraceParkingID_Cam;
+    uint8 TraceParkingID_USS;
+    uint8 ParkInMode;
+    double distance_01;
+    double distance_23;
+    double distance_03;
+    double depth_block;
+    };
+  };
+};
+#endif
