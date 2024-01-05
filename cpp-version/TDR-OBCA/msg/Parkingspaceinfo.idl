@@ -1,0 +1,31 @@
+#ifndef __byd_interfaces__msg__Parkingspaceinfo__idl__
+#define __byd_interfaces__msg__Parkingspaceinfo__idl__
+
+module uss_msgs {
+  module msg {
+    struct ParkingSpaceInfo {
+         uint8 id;
+          int32 P0_X;
+          int32 P0_Y;
+          int32 P1_X;
+          int32 P1_Y;
+          int32 P2_X;
+          int32 P2_Y;
+          int32 P3_X;
+          int32 P3_Y;
+          int32 P0_X_Offset;    //20220308新增
+          int32 P0_Y_Offset;    //20220308新增
+          int32 P1_X_Offset;    //20220308新增
+          int32 P1_Y_Offset;    //20220308新增
+          int32 P2_X_Offset;    //20220308新增
+          int32 P2_Y_Offset;    //20220308新增
+          int32 P3_X_Offset;    //20220308新增
+          int32 P3_Y_Offset;    //20220308新增
+          int32 Width;
+          uint8 ParkingSpaceValid;
+          uint8 ParkingSpaceType;
+    
+    };
+  };
+};
+#endif

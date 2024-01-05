@@ -1,0 +1,13 @@
+#include "Ussinfo_app.idl"
+#ifndef __byd_interfaces__msg__uss__obs__idl__
+#define __byd_interfaces__msg__uss__obs__idl__
+
+module uss_msgs {
+  module msg {
+    struct Uss_obs_avoid {
+      uss_msgs::msg::UssInfo_app ussInfo_app[12];
+
+};
+  };
+};
+#endif
