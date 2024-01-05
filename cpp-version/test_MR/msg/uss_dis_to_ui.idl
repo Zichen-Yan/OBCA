@@ -1,0 +1,12 @@
+#ifndef __byd_interfaces__msg__Uss__dis__to__ui__idl__
+#define __byd_interfaces__msg__Uss__dis__to__ui__idl__
+
+module uss_msgs {
+  module msg {
+    struct Uss_dis_to_UI {
+      uint64 timestamp;
+	    double distance_app[12];
+};
+  };
+};
+#endif
