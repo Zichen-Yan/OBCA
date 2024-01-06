@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}/build",
+        // "env": {
+        //     "KNITRODIR": "/home/byd2004/Downloads/Knitro/knitro-10.2.1-z-Linux-64",
+        // }
+    },
+    "tasks": [
+        {
+            "label": "CMake",
+            "type": "shell",
+            "command": "cmake",
+            "args": [".."],
+        },
+        {
+            "label": "Make",
+            "type": "shell",
+            "command": "make",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "cmake_and_make",
+            "dependsOrder": "sequence",
+            "dependsOn": ["CMake", "Make"],
+        }
+    ]
+}
