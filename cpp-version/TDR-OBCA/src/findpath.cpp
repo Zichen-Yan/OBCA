@@ -1405,7 +1405,7 @@ bool SLS(double x, double y, double phi, double &t, double &u, double &v)
 
 bool LRLRn(double x, double y, double phi, double &t, double &u, double &v)
 {
-	double xi = x + sin(phi), eta = y - 1. + cos(phi);
+	double xi = x + sin(phi), eta = y - 1. - cos(phi);
 	double rho = 0.25 * (2.0 + sqrt(xi * xi + eta * eta));
 	if (rho <= 1.0 && rho >= 0.0)
 	{
