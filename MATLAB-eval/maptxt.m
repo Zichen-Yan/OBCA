@@ -15,10 +15,10 @@ end
 
 X_space_l = -12.5;
 X_space_r = 12.5;
-Y_space_up = 2.5;
-Y_space_down = -2.1;
-X_park_l = -1.5;
-X_park_r = 1.5;
+Y_space_up = 3.5;
+Y_space_down = -2.5;
+X_park_l = -1.75;
+X_park_r = 1.75;
 Park_wigh = -5.5;
 
 minx = -12.5;
@@ -29,7 +29,7 @@ gres = 0.1;
 
 point_map = [];
 map = zeros(1,62500)+1;
-for index = X_space_l:0.05:X_space_r
+for index = X_space_l:0.05:4%X_space_r
     point_map = [point_map,[index;Y_space_up]];
 end
 

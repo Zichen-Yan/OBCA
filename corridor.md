@@ -13,8 +13,8 @@ $$
 目标函数：$J=J_1+J_2$
 
 $$
-J_1=\sum_{i=1}^3u_i^T \begin{bmatrix} 1000 & 0 \\ 0 & 10 \end{bmatrix} u_i\\
-J_2=\sum_{i=1}^2(u_i-u_{i+1})^T \begin{bmatrix} 10 & 0 \\ 0 & 1000 \end{bmatrix} (u_i-u_{i+1})
+J_1=\sum_{i=1}^3u_i^T \begin{bmatrix} 100 & 0 \\ 0 & 1 \end{bmatrix} u_i\\
+J_2=\sum_{i=1}^2(u_i-u_{i+1})^T \begin{bmatrix} 10 & 0 \\ 0 & 100 \end{bmatrix} (u_i-u_{i+1})
 $$
 
 约束方程：
@@ -89,5 +89,3 @@ Ap_{lb} \leq b\\
 Ap_{rf} \leq b\\
 Ap_{rb} \leq b\\
 $$
-
-
