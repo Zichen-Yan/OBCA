@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.13)
+project(Hybrid_A_star)
+set(TARGET_NAME HybridAstar_pathplanning_1.00.07)
+set(CMAKE_BUILD_TYPE "Debug")
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
+add_executable(${TARGET_NAME} 
+              main.cpp src/findpath.cpp src/dynamic_vertical.cpp 
+              src/dynamic_Level.cpp src/dynamic_Oblique.cpp 
+              src/dynamic_CC_road.cpp src/dynamic_multi.cpp
+              src/obcaSolver.cpp src/corridor.cpp)
+
+find_package(Eigen3 REQUIRED)
+find_package(casadi REQUIRED)
+
+target_link_libraries(${TARGET_NAME} Eigen3::Eigen casadi)
+
+
+
