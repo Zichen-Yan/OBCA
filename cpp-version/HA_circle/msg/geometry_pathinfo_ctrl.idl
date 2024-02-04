@@ -1,0 +1,16 @@
+#include "nav_msgs/msg/Coordinate.idl"
+
+#ifndef __byd_interfaces__msg__geometry__pathinfo__ctrl__idl__
+#define  __byd_interfaces__msg__geometry__pathinfo__ctrl__idl__
+
+module byd_interfaces {
+  module msg {
+    struct geometry_pathinfo_ctrl {
+     long long TimeStampMs;
+    int32 TrajectoryLength;
+     uss_msgs::msg::Coordinate coordinate[300];
+
+   };
+  };
+};
+#endif

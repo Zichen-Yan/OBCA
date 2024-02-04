@@ -1,0 +1,12 @@
+#ifndef __byd_interfaces__msg__vehiclecontrol__plana__reqinfo__idl__
+#define __byd_interfaces__msg__vehiclecontrol__plana__reqinfo__idl__
+
+module byd_interfaces {
+  module msg {
+    struct vehiclecontrol_plana_reqinfo{
+      uint8 PlanningRequest;
+      uint32 ObsUssInfo;
+    };
+  };
+};
+#endif

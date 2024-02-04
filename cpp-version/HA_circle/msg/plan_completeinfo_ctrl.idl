@@ -1,0 +1,14 @@
+
+
+#ifndef __byd_interfaces__msg__plan__completeinfo__ctrl__idl__
+#define  __byd_interfaces__msg__plan__completeinfo__ctrl__idl__
+
+module byd_interfaces {
+  module msg {
+    struct plan_completeinfo_ctrl {
+    long long TimeStampMs;
+    uint8 IsPlanningCompleted;
+   };
+  };
+};
+#endif
