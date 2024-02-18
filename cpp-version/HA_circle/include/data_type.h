@@ -105,4 +105,4 @@ struct Fusion
 
 extern Fusion fusion;
 #define obstmap fusion.freeSpaceCell
-extern std::vector<std::vector<int>> dis_map(250, std::vector<int>(250, 0));
+extern std::vector<std::vector<int>> dis_map; //(250, std::vector<int>(250, 0))

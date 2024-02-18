@@ -142,7 +142,6 @@ extern double g_px, g_py, g_pth;  //点坐标
 extern Node g_tnode;                //点
 extern int g_xidx, g_yidx, g_thidx;
 
-extern std::vector<Node> g_open, g_close;//open与close集合
 extern std::unordered_map<std::string, Node> g_openset, g_closeset;
 struct cmp {
     bool operator()(const std::pair<std::string, double>& left,
@@ -152,7 +151,6 @@ struct cmp {
   };
 extern std::priority_queue<std::pair<std::string, double>, std::vector<std::pair<std::string, double>>, cmp> pq;
 extern std::string str_idx;
-extern std::vector<Node> expanded_points;//close集合已拓展的点集合
 
 extern std::vector<path_point>pathpoint;//搜出的路点的集合
 extern Path_config pathfind_parameters;//惩罚参数设置
@@ -173,7 +171,7 @@ extern double b_depth;
 extern double ctrl_nav_x;
 extern double ctrl_nav_y;
 
-extern std::vector<std::vector<int>> dis_map;
+// extern std::vector<std::vector<int>> dis_map;
 ////////////////////函数声明////////////////////////////////
 extern bool  HybridAStar(double Start[3], double End[3]);
 extern bool  HybridAStar_level(double Start[3], double End[3]);
@@ -219,8 +217,7 @@ std::pair<double, double> calc_tau_omega(const double u,
 										 const double phi);
 
 bool LSR(double x, double y, double phi, double& t, double& u, double& v);
-bool LSL(double x, double y, double pextern std::vector<std::vector<int>> dis_map(250, std::vector<int>(250, 0));
-hi, double& t, double& u, double& v);
+bool LSL(double x, double y, double phi, double& t, double& u, double& v);
 bool LRL(double x, double y, double phi, double &t, double &u, double &v);
 bool SLS(double x, double y, double phi, double &t, double &u, double &v);
 bool LRLRn(double x, double y, double phi, double &t, double &u, double &v);

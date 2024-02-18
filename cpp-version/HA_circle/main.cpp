@@ -3,7 +3,6 @@
 //#include <bclcpp/bclcpp.hpp> 
 
 #define DEBUG_PC
-// #define LOG_ALL
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////txt////////////////////////////////////////////////////////
 using namespace std;
@@ -138,7 +137,7 @@ void loadData() {
 	fusion.Theta = 90;
 	fusion.distance_01 = -1.000000;
 	double prk_pos[8] = {-155,5, -155,-545, 145,-545, 145,5};
-	double nav_pos[3] = { -800, 400, 0 };
+	double nav_pos[3] = { -800, 250, 0 };
 	
 	fusion.parkingSpaceInfo.P0_X = prk_pos[0];  // 1110 
 	fusion.parkingSpaceInfo.P0_Y = prk_pos[1];  // -1110
@@ -2554,24 +2553,13 @@ void PlanLog()
 	//fflush(pF);
 	fprintf(pF, "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\n");
 	//fflush(pF);
-	#ifndef LOG_ALL
+	
 	for (int txt_i = 0; txt_i < 300; txt_i++)
 	{
 		fprintf(pF, "%lf,%lf,%lf,%lf,%d\n", plan.coordinate[txt_i].X, plan.coordinate[txt_i].Y, plan.coordinate[txt_i].Yaw, plan.coordinate[txt_i].Curvature, plan.coordinate[txt_i].rajectoryDirection);
 		//fflush(pF);
 	}
-	#else
-	for (int txt_i = 0; txt_i < int(expanded_points.size()); txt_i++)
-	{
-		if (expanded_points[txt_i].theta < 0)   // 航向角转化为0°到360°
-			{
-				expanded_points[txt_i].theta = expanded_points[txt_i].theta + 6.283185307179586;
-			}
-		expanded_points[txt_i].theta=expanded_points[txt_i].theta* 57.295779513082323;
-		fprintf(pF, "%lf,%lf,%lf\n", expanded_points[txt_i].x*100, expanded_points[txt_i].y*100, expanded_points[txt_i].theta);
-		//fflush(pF);
-	}
-	#endif
+	
 	fprintf(pF, "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP\n");
 	//fflush(pF);
 }

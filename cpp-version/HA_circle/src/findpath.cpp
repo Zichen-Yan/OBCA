@@ -30,9 +30,6 @@ std::priority_queue<std::pair<std::string, double>, std::vector<std::pair<std::s
 std::unordered_map<std::string, Node> g_openset, g_closeset;
 std::string str_idx;
 
-std::vector<Node> expanded_points;
-
-std::vector<Node> g_open, g_close;
 std::vector<path_point> pathpoint;
 Path_config pathfind_parameters;
 
@@ -652,7 +649,6 @@ RsPath AnalysticExpantion(Node wknode, double End[3]) // 参数节点的RS曲线
 
 void getFinalPath(RsPath path, std::string stridx)
 {
-	expanded_points = g_close;
 	int i = 1, n = 0, idx = 0; // 临时循环变量，i=1是确保第一个循环可以走下去
 	path_point mid;
 	Node wknode = g_closeset[stridx]; // RS曲线中最后一个元素是目标点
@@ -845,7 +841,6 @@ bool HybridAStar(double Start1[3], double End1[3])
 			pq.pop();
 			g_openset.erase(str_idx);
 			g_closeset[str_idx] = g_tnode;
-			g_close.push_back(g_tnode);
 
 			path = AnalysticExpantion(g_tnode, End); // 代价最小的OPEN节点的RS是否发生碰撞，如果碰撞则下一点，不碰撞则搜路结束
 			if (path.lenth>0)
