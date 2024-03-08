@@ -7,10 +7,10 @@ typedef long int64_byd; // 20220407修改解决编译不通过的问题
 struct Vehicle_config // 车辆参数设置
 {
 	double WB = 2.92;						 //[m] wheel base : rear to front steer 轴距
-	double W = 1.94;						 //[m] width of vehicle 车宽
-	double LF = 3.892;						 //[m] distance from rear to vehicle front end of vehicle 后轴中心到车辆最前端的距离
-	double LB = 1.093;						 //[m] distance from rear to vehicle back end of vehicle 后轴中心到车辆最后端的距离
-	double MAX_STEER = 0.4881;				 //[rad] maximum steering angle 车辆轮胎最大转角
+	double W = 1.92;						 //[m] width of vehicle 车宽
+	double LF = 3.84;						 //[m] distance from rear to vehicle front end of vehicle 后轴中心到车辆最前端的距离
+	double LB = 0.99;						 //[m] distance from rear to vehicle back end of vehicle 后轴中心到车辆最后端的距离
+	double MAX_STEER = 0.4806;				 //[rad] maximum steering angle 车辆轮胎最大转角
 	double MIN_CIRCLE = WB / tan(MAX_STEER); //[m] mininum steering circle radius 车辆最小转弯半径 汉_5.5
 
 	// double W_max = 1.95;
@@ -105,4 +105,4 @@ struct Fusion
 
 extern Fusion fusion;
 #define obstmap fusion.freeSpaceCell
-extern std::vector<std::vector<int>> dis_map; //(250, std::vector<int>(250, 0))
+extern std::vector<std::vector<int>> dis_map;

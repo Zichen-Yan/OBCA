@@ -171,7 +171,6 @@ extern double b_depth;
 extern double ctrl_nav_x;
 extern double ctrl_nav_y;
 
-// extern std::vector<std::vector<int>> dis_map;
 ////////////////////函数声明////////////////////////////////
 extern bool  HybridAStar(double Start[3], double End[3]);
 extern bool  HybridAStar_level(double Start[3], double End[3]);
@@ -182,8 +181,11 @@ extern int  dynamic_vertical_multi(double Start[3], double End[3]);
 extern int  dynamic_CC_road(double Start[3], double End[3]);
 extern double mod2pi(double x);
 extern bool VehicleCollisionGrid(double cpx, double cpy, double cph);
-extern bool VehicleCollisionTreeSearch(double cpx, double cpy, double cph, int circle_idx, 
-	double cosphi, double sinphi, double length, double wid);
+extern bool VehicleCollisionTreeSearch(double cpx, double cpy, double cph, int circle_idx, double cosphi, double sinphi, double length, double wid);
+extern bool VehicleCollisionTreeSearch1(double cpx, double cpy, double cph, double cosphi, double sinphi, double length, double wid);
+extern int VehicleCollisionTreeSearch2(double cpx, double cpy, double cph, double cosphi, double sinphi, double length, double wid);
+extern int VehicleCollisionTreeSearch3(double cpx, double cpy, double cph, double cosphi, double sinphi, double length, double wid);
+extern bool VehicleCollisionTreeSearch8(double cpx, double cpy, double cph, int result, double cosphi, double sinphi, double length, double wid);
 extern void parameter_initi();
 extern void VehicleDynamic(double x, double y, double theta, double D, double delta);
 bool LpRpSp(double x, double y, double phi, double& t, double& u, double& v);
@@ -243,6 +245,12 @@ extern int flag_CCCC;
 extern int flag_CCSC;
 extern int flag_CCSCC;
 
+extern int flag_1;
+extern int flag_2;
+extern int flag_3;
+extern int flag_5;
+extern int flag_8;
+extern int flag_10;
 
 
 
