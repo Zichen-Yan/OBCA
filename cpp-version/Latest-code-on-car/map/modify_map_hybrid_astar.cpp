@@ -68,7 +68,7 @@ namespace byd_apa_plan{
 								if (obstmap[index_xy].Status == 2)
 								{
 									obstmap[index_xy].Status = 3;
-									dis_map[(idx_y - 1)][249-(idx_x - 1)]=1; // 虚拟停车线算入距离地图
+									dis_map[(idx_x - 1)][(idx_y - 1)]=1; // 虚拟停车线算入距离地图
 								}
 							}
 						}
@@ -204,7 +204,6 @@ namespace byd_apa_plan{
 								{
 									obstmap[index_xy].Status = 3;
 								}
-								//obstmap[index_xy].Status = 3;
 							}
 						}
 					}
@@ -1632,7 +1631,7 @@ namespace byd_apa_plan{
             {
                 if ((obstmap[i * pathfind_parameters.XIDX + j].Status == 0) || (obstmap[i * pathfind_parameters.XIDX + j].Status == 3))
                 {
-					dis_map[j][249-i]=1;
+					dis_map[i][j]=1;
                     int dir1 = i * pathfind_parameters.XIDX + j + 1;
                     int dir2 = i * pathfind_parameters.XIDX + j - 1;
                     int dir3 = (i + 1) * pathfind_parameters.XIDX + j;

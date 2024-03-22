@@ -36,10 +36,10 @@ void loadData(){
 	fusion.TraceParkingID_Cam = 1;
 	fusion.TraceParkingID_USS = 0;
 
-	double fus_pos[3] = {1250,1250,0};
-	double navi_pos[3] = {1220,1450,0};
-	int prk_pos[8] = {1520,1250,1520,670,1780,670,1780,1250};
-	fusion.Theta = 90;
+	double fus_pos[3] = {1001.858414,67.462813,276.320007};
+	double navi_pos[3] = {698.780029,57.119999,276.320007};
+	int prk_pos[8] = {1071,-29, 1549,5, 1539,184, 1060,151};
+	fusion.Theta = 184.028601;
 
 	fusion.depth_block= -1.0;
 	fusion.parkingSpaceInfo.ParkingSpaceType = 1;
@@ -49,7 +49,7 @@ void loadData(){
 	PlanBackFirst = 0;
 	PlanForwardFirst = 0;
 	PlanMulti = 0;
-	AstarOrGeo = 0;
+	AstarOrGeo = 1;
 
 	fusion.position.X = fus_pos[0];
 	fusion.position.Y = fus_pos[1];

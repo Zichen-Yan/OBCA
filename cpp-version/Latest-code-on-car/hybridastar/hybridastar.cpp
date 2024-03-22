@@ -16,6 +16,7 @@ namespace byd_apa_plan
 	bool CalcNextNode(Node wknode, double D, double delta);
 	RsPath AnalysticExpantion(Node wknode, double End[3]);
 	void getFinalPath(RsPath path, std::string stridx);
+	int use_circle_flag;
 
 	double TotalCost(Node wknode, double End[3])
 	{
@@ -503,6 +504,18 @@ namespace byd_apa_plan
 			str_idx = get_str_idx(tnode); // hybrid A*的Open集合
 			pq.push({str_idx, tnode.fcost});
 			g_openset[str_idx]=tnode;
+
+			bool isCollision = CollisionGrid_InitPos_test(tnode.x, tnode.y, tnode.theta);
+			if (isCollision)
+			{
+				std::cout << "not use circle" << std::endl;
+				use_circle_flag = 0;
+			}
+			else
+			{
+				std::cout << "use circle" << std::endl;
+				use_circle_flag = 1;
+			}
 
 			CloseSizeMax = 0;
 			bydapa::common::TicToc tictoc;

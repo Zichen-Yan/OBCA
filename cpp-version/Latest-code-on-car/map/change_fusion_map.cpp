@@ -1,8 +1,11 @@
 #include "global_variable.h"
 #include "global_function.h"
+#include "matplotlibcpp.h"
 
 namespace byd_apa_plan
 {
+	namespace plt = matplotlibcpp;
+
 	std::vector<std::vector<int>> dis_map(250, std::vector<int>(250, 0));
 	//double upa_x[10] = {3.9279, 4.1882, 4.1883, 3.9287, 0, 0, -1.1476, -1.3611, -1.3613, -1.1484};
 	//double upa_y[10] = {0.93467, 0.38208, -0.38146, -0.93351, 0, 0, -0.97322, -0.29331, 0.29157, 0.9721};
@@ -145,7 +148,7 @@ namespace byd_apa_plan
 			if ((index_xy >= 0) && (index_xy < pathfind_parameters.MAX_IDX) && (idx_x >= 0) && (idx_x <= pathfind_parameters.XIDX) && (idx_y >= 0) && (idx_y <= pathfind_parameters.XIDY))
 			{
 				obstmap[index_xy].Status = status; 
-				dis_map[(idx_y - 1)][249-(idx_x - 1)]=0; // 删去停车位处的障碍物
+				dis_map[(idx_x - 1)][(idx_y - 1)]=0; // 删去停车位处的障碍物
 			}
 		}
 	}
@@ -224,7 +227,30 @@ namespace byd_apa_plan
 		}
 		ModifyMapHybirdAStar();
 		delete_map();
+
+		// plt::figure_size(1000, 1000);
+        // plt::xlim(-12.5, 12.5);
+        // plt::ylim(-12.5, 12.5);
+        // plt::axis("equal");
+
+		// std::vector<double> obs_x;
+        // std::vector<double> obs_y;
+		// for (int i = 0; i < 250; i++)
+		// {
+		// 	for (int j = 0; j < 250; j++)
+		// 	{
+		// 		if (dis_map[i][j] == 1)
+		// 		{
+		// 			obs_x.push_back(i);
+		// 			obs_y.push_back(j);
+		// 		}
+		// 	}
+		// }
+		// plt::plot(obs_x,obs_y,"r.");
+		// plt::show();
+
 		dis_map = generateDistanceMap(dis_map);
+
 		Uss_map();
 		if (fusion.parkingSpaceInfo.ParkingSpaceType == 1 || fusion.parkingSpaceInfo.ParkingSpaceType == 3)
 		{
@@ -251,14 +277,14 @@ namespace byd_apa_plan
 		}
 		// Perform BFS
 		while (!q.empty()) {
-			auto [x, y] = q.front();
+			std::pair<int,int> pl = q.front();
 			q.pop();
 
-			for (int k = 0; k < 8; ++k) {
-				int nx = x + dx[k];
-				int ny = y + dy[k];
+			for (int k = 0; k < 4; ++k) {
+				int nx = pl.first + dx[k];
+				int ny = pl.second + dy[k];
 				if (nx >= 0 && nx < N && ny >= 0 && ny < N && distanceMap[nx][ny] == INT_MAX) {
-					distanceMap[nx][ny] = distanceMap[x][y] + 1;
+					distanceMap[nx][ny] = distanceMap[pl.first][pl.second] + 1;
 					q.push({nx, ny});
 				}
 			}

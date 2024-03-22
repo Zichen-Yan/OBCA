@@ -257,5 +257,6 @@ namespace byd_apa_plan
 	extern std::vector<path_point> pathpoint3;
 	///    ///
 	extern std::vector<std::vector<int>> dis_map;
+	extern int use_circle_flag;
 }
 #endif

@@ -64,17 +64,17 @@ namespace byd_apa_plan
         {
             double x_c = 0, y_c = 0;
             CalcGridCoordinate(idx, x_c, y_c);
-            if (obstmap[idx - 1].Status == 0)
+            if (obstmap[idx - 1].Status == 0) //red
             {
                 m_x.push_back(x_c);
                 m_y.push_back(y_c);
             }
-            else if (obstmap[idx - 1].Status == 3)
+            else if (obstmap[idx - 1].Status == 3) // blue
             {
                 v_x.push_back(x_c);
                 v_y.push_back(y_c);
             }
-            else if (obstmap[idx - 1].Status == 2)
+            else if (obstmap[idx - 1].Status == 2) // unknown area
             {
                 u_x.push_back(x_c);
                 u_y.push_back(y_c);
@@ -117,7 +117,7 @@ namespace byd_apa_plan
                 car_x_mid.push_back(x);
                 car_y_mid.push_back(y);
             }
-             plt::plot(car_x_mid,car_y_mid,"k-");
+            plt::plot(car_x_mid,car_y_mid,"k-");
         }
         //
         std::vector<double> car_x_end;

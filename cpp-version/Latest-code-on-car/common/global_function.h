@@ -115,6 +115,7 @@ namespace byd_apa_plan
 	//A*
 	extern bool HybridAStar(double start[3], double end[3], const double &time_max);
 	extern bool VehicleCollisionGrid_Astar(double cpx, double cpy, double cph);
+	extern bool CollisionGrid_InitPos_test(double cpx, double cpy, double cph);
 	int VehicleCollisionTreeSearch3(double cpx, double cpy, double cph, double cosphi, double sinphi, double length, double wid);
 	bool VehicleCollisionTreeSearch8(double cpx, double cpy, double cph, int result, double cosphi, double sinphi, double length, double wid);
 	

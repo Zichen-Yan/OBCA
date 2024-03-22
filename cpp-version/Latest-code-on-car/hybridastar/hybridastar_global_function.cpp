@@ -17,7 +17,7 @@ namespace byd_apa_plan
 		else
 			in_parking_lot=0;
 
-		if (in_parking_lot)
+		if (in_parking_lot || !use_circle_flag)
 		{	
 			double rect_x = .0;
 			double rect_y = .0;
@@ -86,6 +86,23 @@ namespace byd_apa_plan
 		return false;
 	}
 
+	bool CollisionGrid_InitPos_test(double cpx, double cpy, double cph)
+	{   
+		double phi = mod2pi(cph);
+		double cosphi = cos(phi);
+		double sinphi = sin(phi);
+
+		double length=vehicle_parameters.LB+vehicle_parameters.LF+0.4;
+		double wid = vehicle_parameters.W+0.4;
+		int result = VehicleCollisionTreeSearch3(cpx, cpy, cph, cosphi, sinphi, length, wid);
+		if (result)
+		{
+			if(VehicleCollisionTreeSearch8(cpx, cpy, cph, result, cosphi, sinphi, length, wid))
+				return true;
+		}
+		return false;
+	}
+
 	int VehicleCollisionTreeSearch3(double cpx, double cpy, double cph, double cosphi, double sinphi, double length, double wid)
 	{
 		int result = 0; // 0无碰撞，1前车碰撞，2后车碰撞，3前后都碰撞
@@ -125,7 +142,7 @@ namespace byd_apa_plan
 			result = 1;
 		}
 		else {
-			double dis = dis_map[(yidx-1)][249-(xidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION;
+			double dis = dis_map[(xidx-1)][(yidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION-0.1;
 			if (dis<=radius)
 			{
 				result = 1;
@@ -148,7 +165,7 @@ namespace byd_apa_plan
 			return 3;
 		}
 		else {
-			double dis = dis_map[(yidx-1)][249-(xidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION;
+			double dis = dis_map[(xidx-1)][(yidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION-0.1;
 			if (dis<=radius)
 			{
 				return 3;
@@ -174,7 +191,7 @@ namespace byd_apa_plan
 				result=2;
 		}
 		else {
-			double dis = dis_map[(yidx-1)][249-(xidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION;
+			double dis = dis_map[(xidx-1)][(yidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION-0.1;
 			if (dis<=radius)
 			{
 				if (result==1)
@@ -215,16 +232,16 @@ namespace byd_apa_plan
 		{
 			rect_y=wid/4;
 
-			center_x1 = (rect_x+3*offset-0.2) * cosphi - (rect_y-0.28) * sinphi + cpx;
-			center_y1 = (rect_x+3*offset-0.2) * sinphi + (rect_y-0.28) * cosphi + cpy;
+			center_x1 = (rect_x+3*offset-0.3) * cosphi - (rect_y-0.28) * sinphi + cpx;
+			center_y1 = (rect_x+3*offset-0.3) * sinphi + (rect_y-0.28) * cosphi + cpy;
 
 			center_x2 = (rect_x+offset) * cosphi - (rect_y-0.15) * sinphi + cpx;
 			center_y2 = (rect_x+offset) * sinphi + (rect_y-0.15) * cosphi + cpy;
 
 			rect_y=-wid/4;
 
-			center_x3 = (rect_x+3*offset-0.2) * cosphi - (rect_y+0.28) * sinphi + cpx;
-			center_y3 = (rect_x+3*offset-0.2) * sinphi + (rect_y+0.28) * cosphi + cpy;
+			center_x3 = (rect_x+3*offset-0.3) * cosphi - (rect_y+0.28) * sinphi + cpx;
+			center_y3 = (rect_x+3*offset-0.3) * sinphi + (rect_y+0.28) * cosphi + cpy;
 
 			center_x4 = (rect_x+offset) * cosphi - (rect_y+0.15) * sinphi + cpx;
 			center_y4 = (rect_x+offset) * sinphi + (rect_y+0.15) * cosphi + cpy;
@@ -239,16 +256,16 @@ namespace byd_apa_plan
 			center_x1 = (rect_x-offset) * cosphi - (rect_y-0.15) * sinphi + cpx;
 			center_y1 = (rect_x-offset) * sinphi + (rect_y-0.15) * cosphi + cpy;
 
-			center_x2 = (rect_x-3*offset+0.2) * cosphi - (rect_y-0.28) * sinphi + cpx;
-			center_y2 = (rect_x-3*offset+0.2) * sinphi + (rect_y-0.28) * cosphi + cpy;
+			center_x2 = (rect_x-3*offset+0.3) * cosphi - (rect_y-0.28) * sinphi + cpx;
+			center_y2 = (rect_x-3*offset+0.3) * sinphi + (rect_y-0.28) * cosphi + cpy;
 
 			rect_y=-wid/4;
 
 			center_x3 = (rect_x-offset) * cosphi - (rect_y+0.15) * sinphi + cpx;
 			center_y3 = (rect_x-offset) * sinphi + (rect_y+0.15) * cosphi + cpy;
 
-			center_x4 = (rect_x-3*offset+0.2) * cosphi - (rect_y+0.28) * sinphi + cpx;
-			center_y4 = (rect_x-3*offset+0.2) * sinphi + (rect_y+0.28) * cosphi + cpy;
+			center_x4 = (rect_x-3*offset+0.3) * cosphi - (rect_y+0.28) * sinphi + cpx;
+			center_y4 = (rect_x-3*offset+0.3) * sinphi + (rect_y+0.28) * cosphi + cpy;
 
 			circle_list2={{center_x1,center_y1},{center_x2,center_y2},{center_x3,center_y3},{center_x4,center_y4}};
 			radius_list2 = {radius,radius+0.15,radius,radius+0.15};
@@ -276,7 +293,7 @@ namespace byd_apa_plan
 				return true;
 			}
 			else {
-				double dis = dis_map[(yidx-1)][249-(xidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION;
+				double dis = dis_map[(xidx-1)][(yidx-1)]*pathfind_parameters.XY_GRID_RESOLUTION-0.1;
 				double radius = radius_list1[idx++];
 				if (dis<=radius)
 				{
