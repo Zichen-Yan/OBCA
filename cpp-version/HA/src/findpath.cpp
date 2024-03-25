@@ -1047,7 +1047,7 @@ bool LRLRp(double x, double y, double phi, double &t, double &u, double &v)
 bool LRSR(double x, double y, double phi, double &t, double &u, double &v)
 {
 	double rho, theta;
-	polar(x + sin(phi), -(y - 1. - cos(phi)), rho, theta);
+	polar(x + sin(phi), y - 1. - cos(phi), rho, theta);
 	if (rho >= 2.0)
 	{
 		t = theta;
