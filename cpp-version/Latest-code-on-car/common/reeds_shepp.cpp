@@ -690,7 +690,7 @@ namespace byd_apa_plan
 			path_.rspath_type[0] = St;
 			path_.rspath_type[1] = Le;
 			path_.rspath_type[2] = St;
-			return (t >= 0 && u <= 0 && v <= -0.0517);  //0.0862
+			return (t >= 0 && u <= 0);  // && v <= -0.0517
 		}
 		else if (y < 0.0 && phi_mod > epsilon && phi_mod < pi) {
 			xd = -y / tan(phi_mod) + x;
@@ -705,7 +705,7 @@ namespace byd_apa_plan
 			path_.rspath_type[1] = Ri;
 			path_.rspath_type[2] = St;
 			//std::cout << "t = " << t << " u = " << u << "v = " << v << std::endl;
-			return (t >= 0 && u <= 0 && v <= -0.0517); // 0.0862
+			return (t >= 0 && u <= 0); //  && v <= -0.0517
 		}
 		return false;
 	}

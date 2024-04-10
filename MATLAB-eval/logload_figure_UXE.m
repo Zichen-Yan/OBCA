@@ -25,9 +25,8 @@ end
 
 index_L = 333;
 Flag_plot_veh = false;
- for index_plan = 0
-     fid = fopen('plan.txt', 'rb');
-        %fid = fopen('D:\Work\测试\04UXE\1206\1206\1057\plan.txt', 'rb');
+for index_plan = 0
+    fid = fopen('plan.txt', 'rb');
     
     request = 1;
     log_list = 0;

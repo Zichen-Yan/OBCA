@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 # define the project name
 set(TARGET_NAME "planAlgorithm")
 
@@ -14,7 +14,6 @@ include_directories(${PROJECT_SOURCE_DIR}/common)
 include_directories(${PROJECT_SOURCE_DIR}/common/include)
 
 find_package(PythonLibs REQUIRED)
-include_directories(./3rd/release/usr/matplotlib-cpp/)
 include_directories( . )
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/common SRC_LIST1)

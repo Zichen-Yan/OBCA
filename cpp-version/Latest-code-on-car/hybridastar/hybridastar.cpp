@@ -45,7 +45,6 @@ namespace byd_apa_plan
 				}
 				else
 				{
-					//LOG_WARNING("ErrorCodeTotalCost=%d", ErrorCode);
 					cost = 1000;
 				}
 			}
@@ -67,7 +66,6 @@ namespace byd_apa_plan
 				}
 				else
 				{
-					//LOG_WARNING("ErrorCodeTotalCost=%d", ErrorCode);
 					cost = 1000;
 				}
 			}
@@ -77,7 +75,6 @@ namespace byd_apa_plan
 				cost = pathfind_parameters.H_COST * rmin * path.lenth + wknode.cost;
 			}
 		}
-
 		return cost;
 	}
 
@@ -138,7 +135,6 @@ namespace byd_apa_plan
 		}
 
 		if (CalcIdx(g_px, g_py, g_pth) == false) // 把路径末端点的实际坐标转换为栅格坐标，（全局变量的g_xidx, g_yidx, g_thidx）
-
 		{
 			return false;
 		}
@@ -453,7 +449,6 @@ namespace byd_apa_plan
 					pathpoint.erase(pathpoint.begin() + point_index_before + 1, pathpoint.begin() + point_index_end);
 					point_index_before = point_size;
 					point_index_end = point_size;
-					//aaa = 1;
 				}
 			}
 		}

@@ -13,13 +13,13 @@
 #include <unordered_map>
 #include <queue>
 #include <algorithm>
+#include <climits>
 
 #include "./include/log.h"
 #include "./include/def_types.h"
 #include "./include/util_time.h"
 #include "./include/json.hpp"
 #include "base_data_struct.h"
-#include <climits>
 
 #ifndef DEBUG_PC
 	#include "../msg/apa_api.h"

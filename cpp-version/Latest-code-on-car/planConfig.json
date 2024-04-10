@@ -118,7 +118,7 @@
             "back_cost": 1.0,
             "heuristic_cost": 2.0,
             "steer_change_cost": 0.9,
-            "steer_cost": 0.3,
+            "steer_cost": 0.0,
             "switch_back_cost": 2.0
         },
         "search": {

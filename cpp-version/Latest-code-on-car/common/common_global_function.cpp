@@ -187,6 +187,7 @@ namespace byd_apa_plan
 		double diffSE = ((start[0] - end_to_fus_before[0])*(start[0] - end_to_fus_before[0]) + (start[1] - end_to_fus_before[1])*(start[1] - end_to_fus_before[1])); // 距终点距离
 		if ((fabs(delta_theta) > 10 * pi / 180) && (diffSE > 1.44))
 		{
+			bias_dist = (fusion.ParkInMode == 0) ? bias_dist : -bias_dist;
 			end_to_fus[0] = end_to_fus_before[0] + (park_theta / fabs(park_theta)) * bias_dist * sin(park_theta);
 			end_to_fus[1] = end_to_fus_before[1] - (park_theta / fabs(park_theta)) * bias_dist * cos(park_theta);
 			end_to_fus[2] = end_to_fus_before[2];
@@ -511,10 +512,10 @@ namespace byd_apa_plan
 			small_level_park = 0;
 			/// 2024.1.11 ///
 			Path_2 = 0; //
-			bias_th = .0;
-			end_init[0] = .0;
-			end_init[1] = .0;
-			end_init[2] = .0;
+			// bias_th = .0;
+			// end_init[0] = .0;
+			// end_init[1] = .0;
+			// end_init[2] = .0;
 			rk_sto[0] = 0; 
 			rk_sto[1] = 0;
 			rk_sto[2] = 0;
