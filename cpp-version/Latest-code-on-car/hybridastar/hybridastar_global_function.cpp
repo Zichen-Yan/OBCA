@@ -9,10 +9,10 @@ namespace byd_apa_plan
 		double cosphi = cos(phi);
 		double sinphi = sin(phi);
 
-		std::pair<double,double> p0={fusion.parkingSpaceInfo.P0_X/100.0,fusion.parkingSpaceInfo.P0_Y/100.0}; 
-		std::pair<double,double> p1={fusion.parkingSpaceInfo.P2_X/100.0,fusion.parkingSpaceInfo.P2_Y/100.0};
+		std::pair<double,double> p0={P0x,P0y}; 
+		std::pair<double,double> p2={P2x,P2y};
 		int in_parking_lot;
-		if (((p0.first<=cpx && cpx<=p1.first) || (p1.first<=cpx && cpx<=p0.first)) && ((p0.second<=cpy && cpy<=p1.second) || (p1.second<=cpy && cpy<=p0.second)))
+		if (((p0.first<=cpx && cpx<=p2.first) || (p2.first<=cpx && cpx<=p0.first)) && ((p0.second<=cpy && cpy<=p2.second) || (p2.second<=cpy && cpy<=p0.second)))
 			in_parking_lot=1;
 		else
 			in_parking_lot=0;
