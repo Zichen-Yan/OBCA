@@ -1,0 +1,1 @@
+/usr/bin/c++  -O0 -Wall -g -ggdb CMakeFiles/planplot.dir/main.cpp.o -o planplot  /usr/lib/x86_64-linux-gnu/libpython3.8.so 

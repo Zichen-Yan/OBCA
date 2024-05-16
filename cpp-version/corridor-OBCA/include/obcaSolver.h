@@ -1,7 +1,7 @@
 #pragma once
 
 #include <casadi/casadi.hpp>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include "data_type.h"
 
 namespace ca = casadi;

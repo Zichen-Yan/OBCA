@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "configurations": [
+        
+        {
+            "name": "g++ - 生成和调试活动文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/planAlgorithm",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build", // 运行时以build文件夹作为当前路径，为了保持调试和运行一致
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "cmake_and_make",
+            "miDebuggerPath": "/usr/bin/gdb",
+        }
+    ]
+}
