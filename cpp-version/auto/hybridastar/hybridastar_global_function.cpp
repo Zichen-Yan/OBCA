@@ -256,7 +256,7 @@ namespace byd_apa_plan
 		else
 			in_parking_lot=0;
 
-		if (in_parking_lot || !use_circle_flag) // in_parking_lot || !use_circle_flag
+		if (1) // in_parking_lot || !use_circle_flag
 		{	
 			double rect_x = .0;
 			double rect_y = .0;

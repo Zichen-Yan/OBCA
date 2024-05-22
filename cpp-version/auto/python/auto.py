@@ -15,10 +15,10 @@ def execute_command(command):
     except subprocess.CalledProcessError as e:
         return f"Error: {e}"
 
-senarios_path = "/home/byd2004/Pictures/maps/vertical/" # abs path
+senarios_path = "/home/byd2004/Pictures/maps/hard/" # abs path
 txt_filenames = get_txt_filenames(senarios_path)
 print(len(txt_filenames))
-save_path = "/home/byd2004/Pictures/output/4.results-opt-twoway-ARSA/"
+save_path = "/home/byd2004/Pictures/output/6.hard-ori/"
 
 for p in txt_filenames:
     command = './../build/planAlgorithm'+' '+senarios_path+p+' '+save_path

@@ -1,8 +1,8 @@
-softfiles=$(ls /home/byd2004/Pictures/output/4.results-opt-twoway-ARSA/*.txt) #plan.txt存放路径
+softfiles=$(ls /home/byd2004/Pictures/output/6.hard-ori/*.txt) #plan.txt存放路径
 cd /home/byd2004/Pictures/auto/python/mat_plot/build #planplot存放路径
 for sfile in ${softfiles}; do
 ./planplot $sfile
 mv test.png $sfile.png
-mv $sfile.png /home/byd2004/Pictures/output/4.figs-opt-twoway-ARSA/ #png存放路径
+mv $sfile.png /home/byd2004/Pictures/output/6.figs-hard-ori/ #png存放路径
 done
 

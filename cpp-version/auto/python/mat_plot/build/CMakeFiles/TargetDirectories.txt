@@ -1,3 +1,0 @@
-/home/byd2004/Pictures/auto/python/mat_plot/build/CMakeFiles/planplot.dir
-/home/byd2004/Pictures/auto/python/mat_plot/build/CMakeFiles/edit_cache.dir
-/home/byd2004/Pictures/auto/python/mat_plot/build/CMakeFiles/rebuild_cache.dir
