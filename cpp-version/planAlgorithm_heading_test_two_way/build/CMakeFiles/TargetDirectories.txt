@@ -1,0 +1,7 @@
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/planAlgorithm.dir
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/edit_cache.dir
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/rebuild_cache.dir
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/list_install_components.dir
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/install.dir
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/install/local.dir
+/home/byd2004/Documents/planAlgorithm_heading_test_two_way/build/CMakeFiles/install/strip.dir

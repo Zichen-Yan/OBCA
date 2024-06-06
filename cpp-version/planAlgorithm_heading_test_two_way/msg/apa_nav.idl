@@ -1,0 +1,15 @@
+#ifndef __byd_interfaces__msg__apa__nav__idl__
+#define __byd_interfaces__msg__apa__nav__idl__
+
+module byd_interfaces {
+  module msg {
+    struct apa_nav{
+      long long TimeStampMs;
+      double nav_pos_x;
+      double nav_pos_y;
+      double nav_heading;
+      uint8 nav_status;
+    };
+  };
+};
+#endif
